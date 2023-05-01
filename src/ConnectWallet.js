@@ -1,7 +1,12 @@
 import constantsValues from "./constantsValues";
 import switchNetwork from "./switchNetwork";
 
-export async function walletConnect(chainToConnect) {
+export async function walletConnect() {
+  const chainToConnect = process.env.REACT_APP_CAHINTOCONNECT;
+  if (!chainToConnect) {
+    console.log("Please Add CAHINTOCONNECT in env");
+    return;
+  }
   const { ethereum } = window;
   let currentAccount = null;
   let metamaskProvider;
@@ -26,7 +31,6 @@ export async function walletConnect(chainToConnect) {
     try {
       await switchNetwork(metamaskProvider, chainToConnect);
     } catch (error) {
-      console.log("first", error);
       alert("Please switch your chain first!!");
       return;
     }
@@ -48,7 +52,6 @@ async function ConnectWallet(metamaskProvider, currentAccount, chainId) {
   }
 
   currentAccount = accounts[0];
-  console.log(currentAccount);
   localStorage.setItem("chainToConnectLocal", chainId);
   alert("Wallet connected successfully \n");
   window.location.reload();

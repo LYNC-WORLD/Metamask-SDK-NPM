@@ -33,11 +33,20 @@ export function AuthContextProvider({ children }) {
       setProvider(prov);
       const network = await prov.getNetwork();
       const chainId = network.chainId.toString();
-      const chainToConnect = process.env.chainToConnect;
-      console.log({ chainId });
-      console.log({ chainToConnect });
+      const chainToConnect = process.env.REACT_APP_CAHINTOCONNECT;
+      if (chainId) {
+        const chainIdHex = ethers.utils.hexValue(Number(chainId));
+        if (chainIdHex != chainToConnect) {
+          await switchNetwork(
+            window.ethereum,
+            process.env.REACT_APP_CAHINTOCONNECT
+          );
+          return;
+        }
+      }
+
+
       let connectedAccounts = window.ethereum._state.accounts;
-      console.log(connectedAccounts);
       if (connectedAccounts.length > 0) {
         setAddress(connectedAccounts[0]);
         setChainId(chainId);

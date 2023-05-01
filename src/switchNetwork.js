@@ -11,7 +11,6 @@ export default async function switchNetwork(metamaskProvider, chainId) {
     if (error.code === 4902) {
       alert(`Please Add  ${constantsValues[chainId].ChainName}\n`);
       try {
-        console.log("first");
         if (chainId === "0x13881") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
