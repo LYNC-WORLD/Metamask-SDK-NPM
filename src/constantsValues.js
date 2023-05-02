@@ -9,7 +9,7 @@ const constantsValues = {
   "0x5a2": {
     chainID: "0x5a2",
     blockExplorer: "https://explorer.public.zkevm-test.net/address/",
-    ChainName: "Pologyon Zkevm Testnet",
+    ChainName: "Polygon Zkevm Testnet",
     slug: "zkEVM-Testnet",
   },
   "0x89": {
