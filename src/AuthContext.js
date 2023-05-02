@@ -1,65 +1,66 @@
 import { ethers } from "ethers";
 import React, { createContext, useEffect, useState } from "react";
 import switchNetwork from "./switchNetwork";
+
 export const AuthContext = createContext();
+
 export function AuthContextProvider({ children }) {
-  const [walletAddress, setAddress] = useState(undefined);
-  const [provider, setProvider] = useState(null);
-  const [chainId, setChainId] = useState(null);
+    const [walletAddress, setAddress] = useState(undefined);
+    const [provider, setProvider] = useState(null);
+    const [chainId, setChainId] = useState(null);
 
-  useEffect(() => {
-    loadWeb3();
-  }, []);
+    useEffect(() => {
+        loadWeb3();
+    }, []);
 
-  useEffect(() => {
-    if (window.ethereum) {
-      window.ethereum.on("chainChanged", async function () {
-        window.location.reload();
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (window.ethereum) {
-      window.ethereum.on("accountsChanged", async function () {
-        window.location.reload();
-      });
-    }
-  }, []);
-
-  const loadWeb3 = async () => {
-    try {
-      const prov = new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(prov);
-      const network = await prov.getNetwork();
-      const chainId = network.chainId.toString();
-      const chainToConnect = process.env.REACT_APP_CAHINTOCONNECT;
-      if (chainId) {
-        const chainIdHex = ethers.utils.hexValue(Number(chainId));
-        if (chainIdHex != chainToConnect) {
-          await switchNetwork(
-            window.ethereum,
-            process.env.REACT_APP_CAHINTOCONNECT
-          );
-          return;
+    useEffect(() => {
+        if (window.ethereum) {
+            window.ethereum.on("chainChanged", async function () {
+                window.location.reload();
+            });
         }
-      }
+    }, []);
 
+    useEffect(() => {
+        if (window.ethereum) {
+            window.ethereum.on("accountsChanged", async function () {
+                window.location.reload();
+            });
+        }
+    }, []);
 
-      let connectedAccounts = window.ethereum._state.accounts;
-      if (connectedAccounts.length > 0) {
-        setAddress(connectedAccounts[0]);
-        setChainId(chainId);
-      }
-    } catch (err) {
-      console.log(err);
-      // toast.error(err.message);
-    }
-  };
+    const loadWeb3 = async () => {
+        try {
+            const prov = new ethers.providers.Web3Provider(window.ethereum);
+            setProvider(prov);
+            const network = await prov.getNetwork();
+            const chainId = network.chainId.toString();
+            const chainToConnect = process.env.REACT_APP_CAHINTOCONNECT;
+            if (chainId) {
+                const chainIdHex = ethers.utils.hexValue(Number(chainId));
+                if (chainIdHex != chainToConnect) {
+                    await switchNetwork(
+                        window.ethereum,
+                        process.env.REACT_APP_CAHINTOCONNECT
+                    );
+                    return;
+                }
+            }
 
-  return (
-    <AuthContext.Provider value={{ chainId, provider, walletAddress }}>
-      {children}
-    </AuthContext.Provider>
-  );
+            let connectedAccounts = window.ethereum._state.accounts;
+            if (connectedAccounts.length > 0) {
+                setAddress(connectedAccounts[0]);
+                setChainId(chainId);
+            }
+        } catch (err) {
+            console.log(err);
+            // toast.error(err.message);
+        }
+    };
+
+    return (
+        <AuthContext.Provider value={{ chainId, provider, walletAddress }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
