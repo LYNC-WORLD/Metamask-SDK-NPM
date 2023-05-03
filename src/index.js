@@ -1,3 +1,4 @@
 import { AuthContext, AuthContextProvider } from "./AuthContext";
 import { walletConnect } from "./ConnectWallet";
-export { walletConnect, AuthContext, AuthContextProvider };
+import HomePage from "./HomePage/HomePage";
+export { walletConnect, AuthContext, AuthContextProvider, HomePage };
