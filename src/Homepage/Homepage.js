@@ -9,7 +9,7 @@ export const Homepage = () => {
     const { walletAddress } = useContext(AuthContext);
 
     return (
-        <AuthContextProvider>
+        <>
             <main class="page">
                 <span class="page-logo metamask-logo">
                     <MetamaskSVG />
@@ -41,6 +41,6 @@ export const Homepage = () => {
                     Lync
                 </a>
             </footer>
-        </AuthContextProvider>
+        </>
     );
 };
