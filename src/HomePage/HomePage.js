@@ -22,11 +22,7 @@ function HomePage() {
           <button class="connect-action-btn" onClick={() => walletConnect()}>
             Connect Metamask
           </button>
-        ) : (
-          <button class="connect-action-btn disconnect-action-btn">
-            Disconnected Metamask
-          </button>
-        )}
+        ) : null}
         {walletAddress ? (
           <span class="wallet-address-display">{walletAddress}</span>
         ) : null}
