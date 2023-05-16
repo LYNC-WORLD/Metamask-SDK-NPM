@@ -1,13 +1,26 @@
 {
-  "name": "lync-wcs",
-  "version": "1.0.1",
-  "description": "This is a wallet connect SDK which allows any wallet to be integrated inside any Dapp",
+  "name": "lync-wallet-sdk",
+  "version": "1.0.2",
+  "description": "LYNC Wallet Integration SDK allows anyone to integrate Web3 Wallets inside any project in few lines of code.",
   "main": "./build/index.js",
+  "keywords": [
+    "web3",
+    "metamask",
+    "wallet",
+    "LYNC",
+    "web3 wallet",
+    "metamask SDK",
+    "SDK"
+  ],
+  "author": "LYNC World",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/LYNC-WORLD/Metamask-SDK-NPM.git"
+  },
   "scripts": {
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
