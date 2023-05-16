@@ -9,7 +9,8 @@ export default async function switchNetwork(metamaskProvider, chainId) {
   } catch (error) {
     console.log(error);
     if (error.code === 4902) {
-      alert(`Please Add  ${constantsValues[chainId].ChainName}\n`);
+      console.log(`Please Add  ${constantsValues[chainId].ChainName}`);
+      // alert(`Please Add  ${constantsValues[chainId].ChainName}\n`);
       try {
         if (chainId === "0x13881") {
           await metamaskProvider.request({
@@ -24,7 +25,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://mumbai.polygonscan.com"],
-                rpcUrls: ["https://matic-mumbai.chainstacklabs.com"],
+                rpcUrls: ["https://matic-mumbai.chainstacklabs.com"], //
               },
             ],
           });
@@ -41,7 +42,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://polygonscan.com/"],
-                rpcUrls: ["https://polygon-rpc.com/"],
+                rpcUrls: ["https://polygon-rpc.com/"], //
               },
             ],
           });
@@ -58,7 +59,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://blockscout.com/shibuya"],
-                rpcUrls: ["https://evm.shibuya.astar.network"],
+                rpcUrls: ["https://rpc.shibuya.astar.network:8545"],
               },
             ],
           });
@@ -160,7 +161,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://explorer.testnet.mantle.xyz"],
-                rpcUrls: ["https://rpc.testnet.mantle.xyz"],
+                rpcUrls: ["https://rpc.testnet.mantle.xyz"], //
               },
             ],
           });
@@ -181,12 +182,12 @@ export default async function switchNetwork(metamaskProvider, chainId) {
               },
             ],
           });
-        } else if (chainId === "0xA4B1") {
+        } else if (chainId === "0xa4b1") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
             params: [
               {
-                chainId: "0xA4B1",
+                chainId: "0xa4b1",
                 chainName: "Arbitrum One",
                 nativeCurrency: {
                   name: "ETH",
@@ -194,16 +195,16 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://explorer.arbitrum.io"],
-                rpcUrls: ["https://arbitrum-mainnet.infura.io"],
+                rpcUrls: ["https://arb1.arbitrum.io/rpc"], //
               },
             ],
           });
-        } else if (chainId === "0x66EED") {
+        } else if (chainId === "0x66eed") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
             params: [
               {
-                chainId: "0x66EED",
+                chainId: "0x66eed",
                 chainName: "Arbitrum Goerli Testnet",
                 nativeCurrency: {
                   name: "ETH",
@@ -211,7 +212,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://goerli.arbiscan.io/"],
-                rpcUrls: ["https://goerli-rollup.arbitrum.io/rpc"],
+                rpcUrls: ["https://goerli-rollup.arbitrum.io/rpc"], //
               },
             ],
           });
@@ -232,12 +233,12 @@ export default async function switchNetwork(metamaskProvider, chainId) {
               },
             ],
           });
-        } else if (chainId === "0xA86A") {
+        } else if (chainId === "0xa86a") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
             params: [
               {
-                chainId: "0xA86A",
+                chainId: "0xa86a",
                 chainName: "Avalanche C-Chain",
                 nativeCurrency: {
                   name: "AVAX",
@@ -245,16 +246,16 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://snowtrace.io"],
-                rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
+                rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"], //
               },
             ],
           });
-        } else if (chainId === "0xA869") {
+        } else if (chainId === "0xa869") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
             params: [
               {
-                chainId: "0xA869",
+                chainId: "0xa869",
                 chainName: "Avalanche Fuji Testnet",
                 nativeCurrency: {
                   name: "AVAX",
@@ -262,7 +263,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
                   decimals: 18,
                 },
                 blockExplorerUrls: ["https://testnet.snowtrace.io"],
-                rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
+                rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"], //
               },
             ],
           });

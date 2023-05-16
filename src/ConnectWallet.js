@@ -11,9 +11,12 @@ export async function walletConnect() {
   let currentAccount = null;
   let metamaskProvider;
   if (!ethereum) {
-    alert(
+    console.log(
       "You must install Metamask into your browser: https://metamask.io/download.htm"
     );
+    // alert(
+    //   "You must install Metamask into your browser: https://metamask.io/download.htm"
+    // );
     return;
   }
   if (window.ethereum.providers === undefined) {
@@ -25,13 +28,17 @@ export async function walletConnect() {
   }
   let chainId = await metamaskProvider.request({ method: "eth_chainId" });
   if (chainId !== chainToConnect) {
-    alert(
-      `You are not connected to  ${constantsValues[chainToConnect].ChainName}\n`
+    console.log(
+      `You are not connected to  ${constantsValues[chainToConnect].ChainName}`
     );
+    // alert(
+    //   `You are not connected to  ${constantsValues[chainToConnect].ChainName}\n`
+    // );
     try {
       await switchNetwork(metamaskProvider, chainToConnect);
     } catch (error) {
-      alert("Please switch your chain first!!");
+      console.log("Please switch your chain first!!");
+      // alert("Please switch your chain first!!");
       return;
     }
     ConnectWallet(metamaskProvider, currentAccount);
@@ -50,10 +57,9 @@ async function ConnectWallet(metamaskProvider, currentAccount, chainId) {
     console.log(error);
     return;
   }
-
   currentAccount = accounts[0];
-  localStorage.setItem("chainToConnectLocal", chainId);
-  alert("Wallet connected successfully \n");
+  console.log("Wallet connected successfully ");
+  // alert("Wallet connected successfully \n");
   window.location.reload();
   return currentAccount;
 }
