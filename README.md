@@ -22,6 +22,13 @@ walletConnect(ChainID)
 // Pass Chain ID
 ```
 
+After user signed in via metamask, can be used to get the user's wallet address, provider for contract Interactions and Chain connected to.
+
+```
+  const { connectedChainId, provider, walletAddress } =
+    useContext(AuthContext);
+```
+
 List of chain IDs:
 
 | **Chain Name**| **Chain ID** |
