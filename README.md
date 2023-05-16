@@ -5,7 +5,7 @@ LYNC Wallet Integration SDK allows anyone to integrate Web3 Wallets inside any p
 
 List of chain IDs:
 
-| Chain Name| Chain ID |
+| **Chain Name**| **Chain ID** |
 |----------|-----|
 | Ethereum Mainnet | 0x1  |
 | Polygon    | 0x89  |
