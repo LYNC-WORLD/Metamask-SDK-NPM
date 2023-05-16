@@ -2,7 +2,7 @@ const constantsValues = {
   "0x13881": {
     chainID: "0x13881",
     blockExplorer: "https://mumbai.polygonscan.com/address/",
-    ChainName: "Mumbai polygon testnet",
+    ChainName: "Mumbai Polygon Testnet",
     slug: "mumbai",
     rpcURL: "https://matic-mumbai.chainstacklabs.com",
   },
@@ -15,7 +15,7 @@ const constantsValues = {
   "0x89": {
     chainID: "0x89",
     blockExplorer: "https://polygonscan.com/address/",
-    ChainName: "Polygon mainnet",
+    ChainName: "Polygon Mainnet",
     slug: "polygon",
   },
   "0x51": {
@@ -27,7 +27,7 @@ const constantsValues = {
   "0x1": {
     chainID: "0x1",
     blockExplorer: "https://etherscan.io/address/",
-    ChainName: "Ethereum mainnet",
+    ChainName: "Ethereum Mainnet",
     slug: "ethereum",
   },
   "0x5": {
@@ -66,16 +66,16 @@ const constantsValues = {
     ChainName: "Mantle Testnet",
     slug: "Mantletestnet",
   },
-  "0xA4B1": {
-    chainID: "0xA4B1",
+  "0xa4b1": {
+    chainID: "0xa4b1",
     blockExplorer: "https://explorer.arbitrum.io/address/",
-    ChainName: "Arbitrum one mainnet",
+    ChainName: "Arbitrum One Mainnet",
     slug: "arbitrum",
   },
   "0x66eed": {
     chainID: "0x66eed",
     blockExplorer: "https://goerli.arbiscan.io/address/",
-    ChainName: "Arbitrum goerli testnet",
+    ChainName: "Arbitrum Goerli Testnet",
     slug: "arbitrumgoerli",
     rpcURL: "https://goerli-rollup.arbitrum.io/rpc",
   },
@@ -85,16 +85,16 @@ const constantsValues = {
     ChainName: "OKC Mainnet",
     slug: "okc",
   },
-  "0xA86A": {
-    chainID: "0xA86A",
+  "0xa86a": {
+    chainID: "0xa86a",
     blockExplorer: "https://subnets.avax.network/address/",
     ChainName: "Avalanche mainnet",
     slug: "avalanche",
   },
-  "0xA869": {
-    chainID: "0xA869",
+  "0xa869": {
+    chainID: "0xa869",
     blockExplorer: "https://subnets-test.avax.network/address/",
-    ChainName: "Avalanche fuji testnet",
+    ChainName: "Avalanche Fuji Testnet",
     slug: "fuji",
   },
   "0x41": {
