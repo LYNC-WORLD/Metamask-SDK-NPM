@@ -3,6 +3,25 @@ LYNC Wallet Integration SDK allows anyone to integrate Web3 Wallets inside any p
 
 ## Steps to setup Wallet inside any project:
 
+Install NPM Package: `npm install lync-wallet-sdk`
+
+Integrate MetamaskConnect:
+
+```
+import { AuthContext, MetamaskConnect } from "lync-wc-sdk";
+
+<HomePage chainId={ChainID} />
+// Pass Chain ID
+
+```
+Integrate Metamask Connect Login on any component:
+```
+import { walletConnect, AuthContext } from "lync-wc-sdk";
+
+walletConnect(ChainID) 
+// Pass Chain ID
+```
+
 List of chain IDs:
 
 | **Chain Name**| **Chain ID** |
