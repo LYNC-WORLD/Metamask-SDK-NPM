@@ -1,10 +1,9 @@
 import constantsValues from "./constantsValues";
 import switchNetwork from "./switchNetwork";
 
-export async function walletConnect() {
-  const chainToConnect = process.env.REACT_APP_CHAIN_ID;
+export async function walletConnect(chainToConnect) {
   if (!chainToConnect) {
-    console.log("Please Add CAHINTOCONNECT in env");
+    console.log("ChainId is required to connect wallet");
     return;
   }
   const { ethereum } = window;
@@ -14,7 +13,7 @@ export async function walletConnect() {
     console.log(
       "You must install Metamask into your browser: https://metamask.io/download.htm"
     );
-    
+
     return;
   }
   if (window.ethereum.providers === undefined) {
@@ -29,7 +28,7 @@ export async function walletConnect() {
     console.log(
       `You are not connected to  ${constantsValues[chainToConnect].ChainName}`
     );
-   
+
     try {
       await switchNetwork(metamaskProvider, chainToConnect);
     } catch (error) {

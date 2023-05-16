@@ -5,9 +5,12 @@ import { walletConnect } from "../ConnectWallet";
 import "./Homepage.css";
 import { MetamaskSVG } from "./MetamaskSVG";
 
-function HomePage() {
+function HomePage({ chainId }) {
   const { walletAddress } = useContext(AuthContext);
-
+  if (!chainId) {
+    console.log("ChainId is required to connect wallet");
+    return;
+  }
   return (
     <>
       <main class="page">
@@ -19,7 +22,10 @@ function HomePage() {
           We are happy to see you here. Time to go to the moon.
         </span>
         {!walletAddress ? (
-          <button class="connect-action-btn" onClick={() => walletConnect()}>
+          <button
+            class="connect-action-btn"
+            onClick={() => walletConnect(chainId)}
+          >
             Connect Metamask
           </button>
         ) : null}

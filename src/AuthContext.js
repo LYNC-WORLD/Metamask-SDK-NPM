@@ -2,11 +2,14 @@ import { ethers } from "ethers";
 import React, { createContext, useEffect, useState } from "react";
 import switchNetwork from "./switchNetwork";
 export const AuthContext = createContext();
-export function AuthContextProvider({ children }) {
+export function AuthContextProvider({ children, chainToConnect }) {
   const [walletAddress, setAddress] = useState(undefined);
   const [provider, setProvider] = useState(null);
-  const [chainId, setChainId] = useState(null);
-
+  const [connectedChainId, setConnectedChainId] = useState(chainToConnect);
+  if (!chainToConnect) {
+    console.log("ChainToConnect Is Required In AuthContextProvider");
+    return;
+  }
   useEffect(() => {
     loadWeb3();
   }, []);
@@ -33,23 +36,18 @@ export function AuthContextProvider({ children }) {
       setProvider(prov);
       const network = await prov.getNetwork();
       const chainId = network.chainId.toString();
-      const chainToConnect = process.env.REACT_APP_CHAIN_ID;
       if (chainId) {
         const chainIdHex = ethers.utils.hexValue(Number(chainId));
-        if (chainIdHex != chainToConnect) {
-          await switchNetwork(
-            window.ethereum,
-            process.env.REACT_APP_CHAIN_ID
-          );
+        if (chainIdHex != connectedChainId) {
+          await switchNetwork(window.ethereum, connectedChainId);
           return;
         }
       }
 
-
       let connectedAccounts = window.ethereum._state.accounts;
       if (connectedAccounts.length > 0) {
         setAddress(connectedAccounts[0]);
-        setChainId(chainId);
+        setConnectedChainId(chainId);
       }
     } catch (err) {
       console.log(err);
@@ -58,7 +56,7 @@ export function AuthContextProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ chainId, provider, walletAddress }}>
+    <AuthContext.Provider value={{ connectedChainId, provider, walletAddress }}>
       {children}
     </AuthContext.Provider>
   );
