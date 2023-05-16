@@ -10,7 +10,7 @@ const constantsValues = {
     chainID: "0x5a2",
     blockExplorer: "https://explorer.public.zkevm-test.net/address/",
     ChainName: "Polygon Zkevm Testnet",
-    slug: "zkEVM-Testnet",
+    slug: "polygonzkEVMTestnet",
   },
   "0x89": {
     chainID: "0x89",
@@ -52,19 +52,13 @@ const constantsValues = {
     chainID: "0x118",
     blockExplorer: "https://zksync2-testnet.zkscan.io/address/",
     ChainName: "zkSync Testnet",
-    slug: "zkSynctestnet",
-  },
-  "0x1388": {
-    chainID: "0x1388",
-    blockExplorer: "https://explorer.testnet.mantle.xyz", //todo
-    ChainName: "Mantle Mainnet",
-    slug: "Mantle",
+    slug: "zkSyncTestnet",
   },
   "0x1389": {
     chainID: "0x1389",
     blockExplorer: "https://explorer.testnet.mantle.xyz/address/",
     ChainName: "Mantle Testnet",
-    slug: "Mantletestnet",
+    slug: "MantleTestnet",
   },
   "0xa4b1": {
     chainID: "0xa4b1",
@@ -76,7 +70,7 @@ const constantsValues = {
     chainID: "0x66eed",
     blockExplorer: "https://goerli.arbiscan.io/address/",
     ChainName: "Arbitrum Goerli Testnet",
-    slug: "arbitrumgoerli",
+    slug: "arbitrumGoerli",
     rpcURL: "https://goerli-rollup.arbitrum.io/rpc",
   },
   "0x42": {
@@ -101,7 +95,7 @@ const constantsValues = {
     chainID: "0x41",
     blockExplorer: "https://www.oklink.com/oktc-test/address/",
     ChainName: "OKC Testnet",
-    slug: "okctestnet",
+    slug: "okcTestnet",
   },
 };
 

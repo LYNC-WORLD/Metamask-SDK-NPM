@@ -165,24 +165,7 @@ export default async function switchNetwork(metamaskProvider, chainId) {
               },
             ],
           });
-        } else if (chainId === "0x1388") {
-          await metamaskProvider.request({
-            method: "wallet_addEthereumChain",
-            params: [
-              {
-                chainId: "0x1388",
-                chainName: "Mantle",
-                nativeCurrency: {
-                  name: "BIT",
-                  symbol: "BIT",
-                  decimals: 18,
-                },
-                blockExplorerUrls: ["https://explorer.mantle.xyz"],
-                rpcUrls: ["https://rpc.mantle.xyz"],
-              },
-            ],
-          });
-        } else if (chainId === "0xa4b1") {
+        }else if (chainId === "0xa4b1") {
           await metamaskProvider.request({
             method: "wallet_addEthereumChain",
             params: [
