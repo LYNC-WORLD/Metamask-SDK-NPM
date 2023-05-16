@@ -2,7 +2,7 @@ import constantsValues from "./constantsValues";
 import switchNetwork from "./switchNetwork";
 
 export async function walletConnect() {
-  const chainToConnect = process.env.REACT_APP_CAHINTOCONNECT;
+  const chainToConnect = process.env.REACT_APP_CHAIN_ID;
   if (!chainToConnect) {
     console.log("Please Add CAHINTOCONNECT in env");
     return;
