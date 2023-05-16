@@ -14,9 +14,7 @@ export async function walletConnect() {
     console.log(
       "You must install Metamask into your browser: https://metamask.io/download.htm"
     );
-    // alert(
-    //   "You must install Metamask into your browser: https://metamask.io/download.htm"
-    // );
+    
     return;
   }
   if (window.ethereum.providers === undefined) {
@@ -31,14 +29,11 @@ export async function walletConnect() {
     console.log(
       `You are not connected to  ${constantsValues[chainToConnect].ChainName}`
     );
-    // alert(
-    //   `You are not connected to  ${constantsValues[chainToConnect].ChainName}\n`
-    // );
+   
     try {
       await switchNetwork(metamaskProvider, chainToConnect);
     } catch (error) {
       console.log("Please switch your chain first!!");
-      // alert("Please switch your chain first!!");
       return;
     }
     ConnectWallet(metamaskProvider, currentAccount);
@@ -59,7 +54,6 @@ async function ConnectWallet(metamaskProvider, currentAccount, chainId) {
   }
   currentAccount = accounts[0];
   console.log("Wallet connected successfully ");
-  // alert("Wallet connected successfully \n");
   window.location.reload();
   return currentAccount;
 }

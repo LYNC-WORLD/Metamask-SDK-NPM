@@ -10,7 +10,6 @@ export default async function switchNetwork(metamaskProvider, chainId) {
     console.log(error);
     if (error.code === 4902) {
       console.log(`Please Add  ${constantsValues[chainId].ChainName}`);
-      // alert(`Please Add  ${constantsValues[chainId].ChainName}\n`);
       try {
         if (chainId === "0x13881") {
           await metamaskProvider.request({
