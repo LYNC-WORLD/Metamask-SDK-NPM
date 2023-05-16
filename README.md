@@ -1,4 +1,4 @@
-# Metamask-SDK-NPM
+# LYNC Wallet Integration SDK
 LYNC Wallet Integration SDK allows anyone to integrate Web3 Wallets inside any project in few lines of code.
 
 ## Steps to setup Wallet inside any project:
