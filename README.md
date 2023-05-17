@@ -10,7 +10,7 @@ Integrate MetamaskConnect:
 ```
 import { AuthContext, MetamaskConnect } from "lync-wc-sdk";
 
-<HomePage chainId={ChainID} />
+<MetamaskConnect chainId={ChainID} />
 // Pass Chain ID
 
 ```
