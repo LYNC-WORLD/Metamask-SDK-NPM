@@ -5,7 +5,7 @@ import { walletConnect } from "../ConnectWallet";
 import "./Homepage.css";
 import { MetamaskSVG } from "./MetamaskSVG";
 
-function HomePage({ chainId }) {
+function MetamaskConnect({ chainId }) {
   const { walletAddress } = useContext(AuthContext);
   if (!chainId) {
     console.log("ChainId is required to connect wallet");
@@ -47,4 +47,4 @@ function HomePage({ chainId }) {
   );
 }
 
-export default HomePage;
+export default MetamaskConnect;
