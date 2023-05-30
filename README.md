@@ -8,7 +8,7 @@ Install NPM Package: `npm install lync-wallet-sdk`
 Integrate MetamaskConnect:
 
 ```
-import { AuthContext, MetamaskConnect } from "lync-wc-sdk";
+import { AuthContext, MetamaskConnect } from "lync-wallet-sdk";
 
 <MetamaskConnect chainId={ChainID} />
 // Pass Chain ID
@@ -16,7 +16,7 @@ import { AuthContext, MetamaskConnect } from "lync-wc-sdk";
 ```
 Integrate Metamask Connect Login on any component:
 ```
-import { walletConnect, AuthContext } from "lync-wc-sdk";
+import { walletConnect, AuthContext } from "lync-wallet-sdk";
 
 walletConnect(ChainID) 
 // Pass Chain ID
