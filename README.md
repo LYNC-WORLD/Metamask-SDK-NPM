@@ -7,6 +7,18 @@ Install NPM Package: `npm install lync-wallet-sdk`
 
 Integrate MetamaskConnect:
 
+
+Wrap App component with AuthContextProvider
+
+
+```
+import { AuthContextProvider } from "lync-wallet-sdk";
+
+  <AuthContextProvider chainToConnect={ChainID}>
+  <App />
+  </AuthContextProvider>
+```
+
 ```
 import { AuthContext, MetamaskConnect } from "lync-wallet-sdk";
 
@@ -18,15 +30,15 @@ Integrate Metamask Connect Login on any component:
 ```
 import { walletConnect, AuthContext } from "lync-wallet-sdk";
 
-walletConnect(ChainID) 
+  <button onClick={() => walletConnect(ChainID)}>Connect Wallet</button> 
+
 // Pass Chain ID
 ```
 
-After user signed in via metamask, can be used to get the user's wallet address, provider for contract Interactions and Chain connected to.
+After user signed in via metamask, can be used to get the user's wallet address, provider for contract Interactions and Chain user is connected to.
 
 ```
-  const { connectedChainId, provider, walletAddress } =
-    useContext(AuthContext);
+  const { connectedChainId, provider, walletAddress } = useContext(AuthContext);
 ```
 
 List of chain IDs:
