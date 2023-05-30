@@ -10,7 +10,6 @@ Integrate MetamaskConnect:
 
 Wrap App component with AuthContextProvider
 
-
 ```
 import { AuthContextProvider } from "lync-wallet-sdk";
 
@@ -18,6 +17,7 @@ import { AuthContextProvider } from "lync-wallet-sdk";
   <App />
   </AuthContextProvider>
 ```
+Integrate Metamask Connect Template:
 
 ```
 import { AuthContext, MetamaskConnect } from "lync-wallet-sdk";
