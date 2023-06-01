@@ -47,8 +47,10 @@ export function AuthContextProvider({ children, chainToConnect }) {
 
       let connectedAccounts = window.ethereum._state.accounts;
       if (connectedAccounts.length > 0) {
+        const chainHex = chainId.toString(16);
+        const chainIdHex = "0x" + chainHex.toLowerCase();
         setAddress(connectedAccounts[0]);
-        setConnectedChainId(chainId);
+        setConnectedChainId(chainIdHex);
       }
     } catch (err) {
       console.log(err);
