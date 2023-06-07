@@ -32,22 +32,27 @@ export function AuthContextProvider({ children, chainToConnect }) {
 
   const loadWeb3 = async () => {
     try {
-      const prov = new ethers.providers.Web3Provider(window.ethereum);
+      const prov = new ethers.BrowserProvider(window.ethereum);
       setProvider(prov);
       const network = await prov.getNetwork();
-      const chainId = network.chainId.toString();
+      const chainId = Number(network.chainId);
       if (chainId) {
-        const chainIdHex = ethers.utils.hexValue(Number(chainId));
+        const chainHex = chainId.toString(16);
+        const chainIdHex = "0x" + chainHex.toLowerCase();
         if (chainIdHex != connectedChainId) {
           await switchNetwork(window.ethereum, connectedChainId);
+          const newProvider = new ethers.BrowserProvider(window.ethereum);
+          setProvider(newProvider);
           return;
         }
       }
 
       let connectedAccounts = window.ethereum._state.accounts;
       if (connectedAccounts.length > 0) {
+        const chainHex = chainId.toString(16);
+        const chainIdHex = "0x" + chainHex.toLowerCase();
         setAddress(connectedAccounts[0]);
-        setConnectedChainId(chainId);
+        setConnectedChainId(chainIdHex);
       }
     } catch (err) {
       console.log(err);
