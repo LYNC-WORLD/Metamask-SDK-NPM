@@ -41,8 +41,8 @@ export function AuthContextProvider({ children, chainToConnect }) {
         const chainIdHex = "0x" + chainHex.toLowerCase();
         if (chainIdHex != connectedChainId) {
           await switchNetwork(window.ethereum, connectedChainId);
-          const prov = new ethers.BrowserProvider(window.ethereum);
-          setProvider(prov);
+          const newProvider = new ethers.BrowserProvider(window.ethereum);
+          setProvider(newProvider);
           return;
         }
       }
