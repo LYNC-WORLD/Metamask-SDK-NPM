@@ -1,6 +1,6 @@
 {
-  "name": "lync-wallet-sdk",
-  "version": "1.0.2",
+  "name": "@lyncworld/lync-wallet-sdk",
+  "version": "1.0.5",
   "description": "LYNC Wallet Integration SDK allows anyone to integrate Web3 Wallets inside any project in few lines of code.",
   "main": "./build/index.js",
   "keywords": [
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LYNC-WORLD/Metamask-SDK-NPM.git"
+    "url": "git+https://github.com/LYNC-WORLD/Metamask-SDK-NPM.git"
   },
   "scripts": {
     "build": "webpack"
@@ -36,5 +36,13 @@
     "style-loader": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/LYNC-WORLD/Metamask-SDK-NPM/issues"
+  },
+  "homepage": "https://github.com/LYNC-WORLD/Metamask-SDK-NPM#readme",
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {}
 }

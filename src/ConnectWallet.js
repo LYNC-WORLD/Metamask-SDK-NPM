@@ -1,6 +1,6 @@
 import constantsValues from "./constantsValues";
 import switchNetwork from "./switchNetwork";
-
+import config from "../config";
 export async function walletConnect(chainToConnect) {
   if (!chainToConnect) {
     console.log("ChainId is required to connect wallet");
@@ -25,14 +25,15 @@ export async function walletConnect(chainToConnect) {
   }
   let chainId = await metamaskProvider.request({ method: "eth_chainId" });
   if (chainId !== chainToConnect) {
-    console.log(
-      `You are not connected to  ${constantsValues[chainToConnect].ChainName}`
-    );
-
+    if (config.debugger) {
+      console.log(
+        `You are not connected to  ${constantsValues[chainToConnect].ChainName}`
+      );
+    }
     try {
       await switchNetwork(metamaskProvider, chainToConnect);
     } catch (error) {
-      console.log("Please switch your chain first!!");
+      if (config.debugger) console.log("Please switch your chain first!!");
       return;
     }
     ConnectWallet(metamaskProvider, currentAccount);
@@ -42,17 +43,26 @@ export async function walletConnect(chainToConnect) {
 }
 
 async function ConnectWallet(metamaskProvider, currentAccount, chainId) {
-  let accounts;
-  try {
-    accounts = await metamaskProvider.request({
-      method: "eth_requestAccounts",
-    });
-  } catch (error) {
-    console.log(error);
+  const connectedAccounts = await metamaskProvider.request({
+    method: "eth_accounts",
+  });
+  if (config.debugger && connectedAccounts.length > 0) {
+    console.log(connectedAccounts[0]);
     return;
   }
-  currentAccount = accounts[0];
-  console.log("Wallet connected successfully ");
-  window.location.reload();
-  return currentAccount;
+  if (connectedAccounts.length === 0) {
+    let accounts;
+    try {
+      accounts = await metamaskProvider.request({
+        method: "eth_requestAccounts",
+      });
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+    currentAccount = accounts[0];
+    console.log("Wallet connected successfully ");
+    window.location.reload();
+    return currentAccount;
+  }
 }
